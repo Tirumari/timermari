@@ -1,28 +1,78 @@
-.App {
+body, html {
+  font-family: Arial, Helvetica, sans-serif
+}
+
+button:focus {
+  outline: 0;
+}
+
+#App {
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+#title {
+  font-size: 3em;
+  margin: 4% 0% 0% 0%
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+#subtitle {
+  font-size: 1em;
+  margin: 0% 0% 2% 1%
 }
 
-.App-title {
+#goal {
+  color: #727272;
+}
+
+#target {
   font-size: 1.5em;
+  margin: 0% 1% 0% 1%;
 }
 
-.App-intro {
+#setGoal {
+  display: flex;
+  justify-content: center;
+  margin: 1%;
+}
+
+#goalInput {
+  border-radius: 2px;
+
+}
+
+#display {
+  font-size: 5em;
+  margin: 1%;
+}
+
+.bigRed {
+  border-radius: 50%;
+  background-color: red;
+  color: cornsilk;
+  font-size: x-large;
+  width: 8em;
+  height: 8em;
+  margin: 1%;
+}
+
+#reset {
+  border-radius: 50%;
+  background-color: green;
+  color: cornsilk;
   font-size: large;
+  width: 4em;
+  height: 4em;
+  margin: 1%;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+#resetDisabled {
+  border-radius: 50%;
+  background-color: cornsilk;
+  color: green;
+  border: 1px;
+  border-color: green;
+  font-size: large;
+  width: 4em;
+  height: 4em;
+  margin: 1%;
 }
