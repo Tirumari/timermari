@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import Time from './components/Time.js';
-import Buttons from './components/Buttons.js';
+import Title from './components/Title.js';
+import Game from './components/Game.js';
 
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      goal: 5000,
+      goal: 1000,
       tempGoal: 0,
       time: 0,
       isRunning: false,
@@ -50,6 +50,8 @@ class App extends Component {
       console.log('<1')
     } else if (diff<0.5 && diff>0.1) {
       console.log('close')
+    } else if (diff<0.1 && diff>0) {
+      console.log('super close!')
     } else if (diff === 0) {
       console.log('congrats')
     }
@@ -58,60 +60,30 @@ class App extends Component {
   writeSeconds = (val) => {
     let seconds = (val) / 1000;
 
-    return seconds.toFixed(2);
+    return seconds.toFixed(3);
   };
 
   writeMilliseconds = (val) => {
     return val*1000;
   }
 
-  handleChange = (event) => {
-    let goal = this.writeMilliseconds(event.target.value);
-
+  setGoal = (val) => {
     this.setState({
-      tempGoal: goal
-    })
+      goal: val
+    });
   }
 
-  handleSubmit = (event) => {
-    event.preventDefault();
-    
-    let goal = this.state.tempGoal;
-
-    if (goal >= 300000) {
-      alert('ok, I know this game is about wasting time, but you want to sit around for five solid minutes and THEN press the button? No inputs more than five mintues long!')
-
-      event.target.value = '';
-    } else {
-      this.setState({
-        goal: goal
-      })
-    }
-  };
-
-  clearBox = (event) => {
-    event.target.value = '';
+  setTempGoal = (val) => {
+    this.setState({
+      tempGoal: val
+    });
   }
-
-
 
   render() {
     return (
       <div id="App">
-        <h1 id="title">Timermari</h1>
-        <div id="subtitle">a time-wasting game about timing</div>
-        <div id="goal">
-          Your goal is <span id="target">{this.writeSeconds(this.state.goal)}</span> seconds!
-          <div id="goalSet">
-            <div>
-              <form id="setGoal" onSubmit={this.handleSubmit}>
-                set your own goal: <input type="text" onClick={this.clearBox} onChange={this.handleChange} id="goalInput" />
-              </form>
-            </div>
-          </div>
-        </div>
-        <Time time={this.state.time} writeSeconds={this.writeSeconds} />
-        <Buttons isRunning={this.state.isRunning} handleStart={this.handleStart} handleStop={this.handleStop} reset={this.reset} />
+        <Title goal={this.state.goal} tempGoal={this.state.tempGoal} writeSeconds={this.writeSeconds} writeMilliseconds={this.writeMilliseconds} setGoal={this.setGoal} setTempGoal={this.setTempGoal} />
+        <Game time={this.state.time} goal={this.state.goal} writeSeconds={this.writeSeconds} isRunning={this.state.isRunning} handleStart={this.handleStart} handleStop={this.handleStop} />
       </div>
     );
   }

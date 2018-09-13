@@ -20,13 +20,38 @@ button:focus {
   margin: 0% 0% 2% 1%
 }
 
+#game {
+  display: flex;
+  justify-content: center;
+}
+
+#scores {
+  width: 33%;
+}
+
+.spacer {
+  width: 2%;
+  display: flex;
+  justify-content: center;
+}
+
+#line {
+  width: 2px;
+  background-color: #5e5e5e;
+  margin: 10px 0px 10px 0px;
+}
+
+#timer {
+  width: 33%;
+}
+
 #goal {
   color: #727272;
 }
 
 #target {
   font-size: 1.5em;
-  margin: 0% 1% 0% 1%;
+  margin: 0% 0.5% 0% 0.5%;
 }
 
 #setGoal {
@@ -36,8 +61,8 @@ button:focus {
 }
 
 #goalInput {
-  border-radius: 2px;
-
+  border-radius: 5px;
+  text-align: center;
 }
 
 #display {
@@ -45,7 +70,8 @@ button:focus {
   margin: 1%;
 }
 
-.bigRed {
+#bigRedStart {
+  border: 0px;
   border-radius: 50%;
   background-color: red;
   color: cornsilk;
@@ -53,26 +79,17 @@ button:focus {
   width: 8em;
   height: 8em;
   margin: 1%;
+  box-shadow: 0px 0px 10px 3px #868686
 }
 
-#reset {
+#bigRedStop {
+  border: 0px;
   border-radius: 50%;
-  background-color: green;
+  background-color: red;
   color: cornsilk;
-  font-size: large;
-  width: 4em;
-  height: 4em;
+  font-size: x-large;
+  width: 8em;
+  height: 8em;
   margin: 1%;
-}
-
-#resetDisabled {
-  border-radius: 50%;
-  background-color: cornsilk;
-  color: green;
-  border: 1px;
-  border-color: green;
-  font-size: large;
-  width: 4em;
-  height: 4em;
-  margin: 1%;
+  box-shadow: inset 0 0 20px 3px #a80000;
 }
